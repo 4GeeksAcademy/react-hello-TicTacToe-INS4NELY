@@ -9,3 +9,22 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+.fondo {
+    background: #0d1b2a;
+}
+
+.text {
+    color: #f2f2f2;
+}
+
+.mapStyle {
+    width: 10rem;
+    height: 10rem;
+    background-color:#0d1b2a;
+    border: 1px solid orange;
+}
+
+.mapStyle:hover {
+    background-color:#09141f;
+}

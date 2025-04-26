@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useState } from 'react';
+import Users from './UserMap';
+import GameMap from './Game';
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+const FullGame = () => {
+    const [player1, setPlayer1] = useState('');
+    const [player2, setPlayer2] = useState('');
+    const [initialTurn, setInitialTurn] = useState(0);
+    const [showGame, setShowGame] = useState(false);
 
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-            
+    if (!showGame) {
+        return (
+            <Users player1={player1}
+                player2={player2}
+                setPlayer1={setPlayer1}
+                setPlayer2={setPlayer2}
+                setInitialTurn={setInitialTurn}
+                onStart={() => setShowGame(true)} />
+        )} else {
+        return (
+            <GameMap player1={player1}
+            player2={player2}
+            turn={initialTurn}
+            setShowGame={setShowGame}/>
+        )
+    }
+}
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
-};
-
-export default Home;
+export default FullGame
